@@ -24,6 +24,7 @@
         "laravel/nova": "*",
         "laravel/tinker": "^2.0",
         "parsedown/laravel": "^1.2",
+        "spatie/laravel-backup": "^6.7",
         "spatie/laravel-medialibrary": "^7.0.0",
         "spatie/nova-backup-tool": "^3.8",
         "spatie/nova-tags-field": "^2.3"

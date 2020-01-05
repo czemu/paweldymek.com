@@ -79,6 +79,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             new \Infinety\Filemanager\FilemanagerTool(),
+            new \Spatie\BackupTool\BackupTool(),
         ];
     }
 
