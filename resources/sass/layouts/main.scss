@@ -1,0 +1,50 @@
+#wrapper {
+    min-width: 320px;
+    height: 100%;
+
+    #content {
+        height: 100%;
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+
+        @media all and (max-width: $break-large) {
+            height: auto;
+            display: block;
+        }
+
+        > #sidebar,
+        > #main {
+            width: 50%;
+
+            @media all and (max-width: $break-large) {
+                width: 100%;
+            }
+        }
+
+        > #sidebar {
+            height: 100%;
+
+            @media all and (max-width: $break-large) {
+                height: auto;
+            }
+        }
+
+        > #main {
+            overflow-y: scroll;
+            padding: 50px;
+
+            @media all and (max-width: $break-large) {
+                overflow-y: auto;
+            }
+
+            @media all and (max-width: $break-medium) {
+                padding: 30px;
+            }
+
+            @media all and (max-width: $break-small) {
+                padding: 15px;
+            }
+        }
+    }
+}
