@@ -52,5 +52,17 @@
         .tags {
             margin-top: 25px;
         }
+
+        .read-more {
+            margin-top: 25px;
+
+            a {
+                color: $blue;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }

@@ -14,6 +14,9 @@
                     <p>
                         {{ $post->intro }}
                     </p>
+                    <p class="read-more">
+                        <a href="{{ $post->getUrl() }}">Read more</a>
+                    </p>
                 @endif
 
                 @if (count($post->tags))
