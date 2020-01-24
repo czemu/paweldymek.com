@@ -40,6 +40,7 @@ class PostsController extends Controller
             ->whereHas('tags', function ($query) use ($tag) {
                 $query->where('tag_id', $tag->id);
             })
+            ->locale(App::getLocale())
             ->orderBy('id', 'DESC')
             ->get();
 
