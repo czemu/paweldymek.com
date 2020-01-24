@@ -16,6 +16,7 @@
     "require": {
         "php": "^7.2",
         "benjaminhirsch/nova-slug-field": "^1.2",
+        "dillingham/nova-attach-many": "^1.0",
         "dillingham/nova-button": "^1.0",
         "ebess/advanced-nova-media-library": "^2.9",
         "fideloper/proxy": "^4.0",
@@ -23,11 +24,11 @@
         "laravel/framework": "^6.2",
         "laravel/nova": "*",
         "laravel/tinker": "^2.0",
+        "mcamara/laravel-localization": "^1.4",
         "parsedown/laravel": "^1.2",
         "spatie/laravel-backup": "^6.7",
         "spatie/laravel-medialibrary": "^7.0.0",
-        "spatie/nova-backup-tool": "^3.8",
-        "spatie/nova-tags-field": "^2.3"
+        "spatie/nova-backup-tool": "^3.8"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

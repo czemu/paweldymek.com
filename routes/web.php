@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('post/{slug}', ['as' => 'posts.show', 'uses' => 'PostsController@show']);
-Route::get('tag/{slug}', ['as' => 'posts.tag', 'uses' => 'PostsController@tag']);
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function()
+{
+    Route::get('post/{slug}', ['as' => 'posts.show', 'uses' => 'PostsController@show']);
+    Route::get('tag/{slug}', ['as' => 'posts.tag', 'uses' => 'PostsController@tag']);
 
-Route::get('rss/posts', ['as' => 'rss.posts', 'uses' => 'RssController@posts']);
+    Route::get('rss/posts', ['as' => 'rss.posts', 'uses' => 'RssController@posts']);
 
-Route::get('/', ['as' => 'pages.home', 'uses' => 'PagesController@home']);
+    Route::get('/', ['as' => 'pages.home', 'uses' => 'PagesController@home']);
+});

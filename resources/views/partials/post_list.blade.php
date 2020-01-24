@@ -23,7 +23,7 @@
                     <ul class="tags">
                         @foreach ($post->tags as $tag)
                             <li>
-                                <a href="{{ $tag->getUrl() }}">{{ $tag->getTranslation('name', App::getLocale()) }}</a>
+                                <a href="{{ $tag->getUrl() }}">{{ $tag->name }}</a>
                             </li>
                         @endforeach
                     </ul>

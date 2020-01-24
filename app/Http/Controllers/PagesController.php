@@ -9,7 +9,10 @@ class PagesController extends Controller
 {
     public function home()
 	{
-        $posts = Post::published()->orderBy('id', 'DESC')->get();
+        $posts = Post::locale(\App::getLocale())
+            ->published()
+            ->orderBy('id', 'DESC')
+            ->get();
 
         return view('pages.home', compact('posts'));
 	}

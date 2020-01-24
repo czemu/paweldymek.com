@@ -6,6 +6,13 @@
       0 => 'Benjaminhirsch\\NovaSlugField\\FieldServiceProvider',
     ),
   ),
+  'dillingham/nova-attach-many' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'NovaAttachMany\\Providers\\FieldServiceProvider',
+    ),
+  ),
   'dillingham/nova-button' => 
   array (
     'providers' => 
@@ -74,6 +81,17 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
+  'mcamara/laravel-localization' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'LaravelLocalization' => 'Mcamara\\LaravelLocalization\\Facades\\LaravelLocalization',
+    ),
+  ),
   'nesbot/carbon' => 
   array (
     'providers' => 
@@ -109,32 +127,11 @@
       0 => 'Spatie\\MediaLibrary\\MediaLibraryServiceProvider',
     ),
   ),
-  'spatie/laravel-tags' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Spatie\\Tags\\TagsServiceProvider',
-    ),
-  ),
-  'spatie/laravel-translatable' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Spatie\\Translatable\\TranslatableServiceProvider',
-    ),
-  ),
   'spatie/nova-backup-tool' => 
   array (
     'providers' => 
     array (
       0 => 'Spatie\\BackupTool\\BackupToolServiceProvider',
-    ),
-  ),
-  'spatie/nova-tags-field' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Spatie\\TagsField\\TagsFieldServiceProvider',
     ),
   ),
 );

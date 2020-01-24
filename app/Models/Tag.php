@@ -2,24 +2,26 @@
 
 namespace App\Models;
 
-use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Tags\Tag as SpatieTag;
 
-class Tag extends SpatieTag
+class Tag extends Model
 {
-    public static function findFromSlug(string $slug, string $type = null, string $locale = null)
+    public static function boot()
     {
-        $locale = $locale ?? app()->getLocale();
+        parent::boot();
 
-        return static::query()
-            ->where("slug->{$locale}", $slug)
-            ->where('type', $type)
-            ->first();
+        static::deleting(function($post) {
+            $post->posts()->detach();
+        });
+   }
+
+    public function posts()
+    {
+        return $this->belongsToMany('App\Models\Post');
     }
 
     public function getUrl()
     {
-        return route('posts.tag', ['slug' => $this->getTranslation('slug', \App::getLocale())]);
+        return route('posts.tag', $this->slug);
     }
 }

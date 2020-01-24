@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Input;
+use Auth;
+use App;
 
 class PostsController extends Controller
 {
@@ -12,9 +14,13 @@ class PostsController extends Controller
 	{
         $post = Post::where('slug', $slug)->first();
 
-        if (is_null($post) OR ( ! \Auth::check()) AND $post->is_published !== 1)
+        if (is_null($post) OR ( ! Auth::check()) AND $post->is_published !== 1)
         {
             abort(404);
+        }
+        elseif ($post->locale != App::getLocale())
+        {
+            return redirect()->to($post->getUrl());
         }
 
         return view('posts.show', compact('post'))
@@ -23,15 +29,17 @@ class PostsController extends Controller
 
     public function tag($slug)
     {
-        $tag = Tag::findFromSlug($slug);
+        $tag = Tag::where('slug', $slug)->first();
 
         if (is_null($tag))
         {
             abort(404);
         }
 
-        $posts = Post::withAllTags([$tag->name])
-            ->published()
+        $posts = Post::published()
+            ->whereHas('tags', function ($query) use ($tag) {
+                $query->where('tag_id', $tag->id);
+            })
             ->orderBy('id', 'DESC')
             ->get();
 

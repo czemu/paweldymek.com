@@ -4,26 +4,20 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Markdown;
-use Laravel\Nova\Fields\Select;
 use Benjaminhirsch\NovaSlugField\Slug;
 use Benjaminhirsch\NovaSlugField\TextWithSlug;
+use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use NovaButton\Button;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
-use NovaAttachMany\AttachMany;
 
-class Post extends Resource
+class Tag extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Models\Post';
+    public static $model = 'App\Models\Tag';
 
     /**
      * Get the displayable label of the resource.
@@ -32,7 +26,7 @@ class Post extends Resource
      */
     public static function label()
     {
-        return __('Posts');
+        return __('Tags');
     }
 
     /**
@@ -42,7 +36,7 @@ class Post extends Resource
      */
     public static function singularLabel()
     {
-        return __('Post');
+        return __('Tag');
     }
 
     /**
@@ -74,29 +68,14 @@ class Post extends Resource
     {
         return [
             ID::make()->sortable(),
-            Select::make('Locale', 'locale')
-                ->options(array_combine(\LaravelLocalization::getSupportedLanguagesKeys(), \LaravelLocalization::getSupportedLanguagesKeys()))
-                ->rules('required'),
             TextWithSlug::make('Name', 'name')->slug('slug')->rules('required', 'max:255'),
             Slug::make('Slug', 'slug')
                ->disableAutoUpdateWhenUpdating()
                ->sortable()
                ->rules('required', 'max:255')
-               ->creationRules('unique:posts,slug')
-               ->updateRules('unique:posts,slug,{{resourceId}}')
+               ->creationRules('unique:tags,slug')
+               ->updateRules('unique:tags,slug,{{resourceId}}')
                ->hideFromIndex(),
-            Textarea::make('Intro'),
-            Markdown::make('Content', 'content'),
-            Images::make('Image', 'image')
-                ->setFileName(function($originalFilename, $extension, $model) {
-                    return \Str::slug($model->name).'.'.strtolower($extension);
-                })
-                ->customPropertiesFields([
-                    Textarea::make(__('Description'), 'description'),
-                ])
-                ->conversionOnIndexView('small'),
-            Boolean::make('Is published'),
-            AttachMany::make('Tags', 'tags'),
         ];
     }
 

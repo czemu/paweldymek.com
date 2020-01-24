@@ -7,14 +7,21 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Spatie\MediaLibrary\Models\Media;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use \Spatie\Tags\HasTags;
 
 class Post extends Model implements HasMedia
 {
     use HasMediaTrait;
-    use HasTags;
 
     protected $guarded = ['id'];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($post) {
+            $post->tags()->detach();
+        });
+   }
 
     public function registerMediaCollections()
     {
@@ -28,21 +35,14 @@ class Post extends Model implements HasMedia
         $this->addMediaConversion('small')->crop('crop-center', 100, 80);
     }
 
-    public static function getTagClassName(): string
+    public function tags()
     {
-        return \App\Models\Tag::class;
-    }
-
-    public function tags(): MorphToMany
-    {
-        return $this
-            ->morphToMany(self::getTagClassName(), 'taggable', 'taggables', null, 'tag_id')
-            ->orderBy('order_column');
+        return $this->belongsToMany('App\Models\Tag');
     }
 
     public function getUrl()
     {
-        return route('posts.show', ['slug' => $this->slug]);
+        return url($this->locale.'/post/'.$this->slug);
     }
 
     public function getReadTime()
@@ -53,5 +53,10 @@ class Post extends Model implements HasMedia
     public function scopePublished($query)
     {
         return $query->where('is_published', 1);
+    }
+
+    public function scopeLocale($query, $locale)
+    {
+        return $query->where('locale', $locale);
     }
 }
