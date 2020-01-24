@@ -30,3 +30,7 @@
         </div>
     </div>
 @endsection
+
+@section('head')
+    <link rel="alternate" hreflang="{{ Request::is('en') ? 'pl' : 'en' }}" href="{{ Request::is('en') ? url('pl') : url('en') }}" />
+@endsection

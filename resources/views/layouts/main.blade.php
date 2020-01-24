@@ -55,6 +55,8 @@
           ga('create', 'UA-836606-11', 'auto');
           ga('send', 'pageview');
         </script>
+
+        @yield('head')
     </head>
     <body>
         <div id="wrapper">
