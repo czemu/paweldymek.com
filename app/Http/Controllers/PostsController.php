@@ -7,6 +7,7 @@ use App\Models\Tag;
 use Illuminate\Support\Facades\Input;
 use Auth;
 use App;
+use Carbon\Carbon;
 
 class PostsController extends Controller
 {
@@ -20,7 +21,7 @@ class PostsController extends Controller
         }
         elseif ($post->locale != App::getLocale())
         {
-            return redirect()->to($post->getUrl());
+            return redirect()->to($post->getUrl(), 301);
         }
 
         return view('posts.show', compact('post'))

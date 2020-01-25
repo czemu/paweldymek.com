@@ -16,9 +16,9 @@
             <section id="article">
                 <div class="top-bar">
                     <p>
-                        Posted on <time datetime="{{ $post->created_at }}" title="{{ $post->created_at }}">{{ date('M j, Y', strtotime($post->created_at)) }}</time>
+                        {{ trans('posts.posted') }} <time datetime="{{ $post->created_at }}" title="{{ $post->created_at }}">{!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->diffForHumans(); !!}</time>
                         <span>&bull;</span>
-                        {{ $post->getReadTime() }} min to read
+                        {{ trans('posts.time_to_read', ['time' => $post->getReadTime()]) }}
                     </p>
                 </div>
 

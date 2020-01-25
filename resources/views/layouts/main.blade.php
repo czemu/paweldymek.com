@@ -67,10 +67,10 @@
             <div id="cookie-alert">
                 <div class="inner">
                     <div>
-                        <p>This site uses cookies to provide you a better user experience. You can block them in your web browser settings. Incredible, isn't it?</p>
+                        <p>{{ trans('template.cookie_alert.content') }}</p>
                     </div>
                     <div>
-                        <a class="btn btn-light btn-sm close-alert" href="#"><i class="icon-cancel"></i>Close</a>
+                        <a class="btn btn-light btn-sm close-alert" href="#"><i class="icon-cancel"></i>{{ trans('template.cookie_alert.button') }}</a>
                     </div>
                 </div>
             </div>

@@ -9,6 +9,8 @@ class PagesController extends Controller
 {
     public function home()
 	{
+        setlocale(LC_TIME, config('app.locale'));
+        
         $posts = Post::locale(\App::getLocale())
             ->published()
             ->orderBy('id', 'DESC')
