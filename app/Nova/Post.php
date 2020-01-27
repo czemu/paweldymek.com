@@ -26,26 +26,6 @@ class Post extends Resource
     public static $model = 'App\Models\Post';
 
     /**
-     * Get the displayable label of the resource.
-     *
-     * @return string
-     */
-    public static function label()
-    {
-        return __('Posts');
-    }
-
-    /**
-     * Get the displayable singular label of the resource.
-     *
-     * @return string
-     */
-    public static function singularLabel()
-    {
-        return __('Post');
-    }
-
-    /**
      * Get the value that should be displayed to represent the resource.
      *
      * @return string
