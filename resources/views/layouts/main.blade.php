@@ -10,7 +10,7 @@
             <title>Paweł Dymek - Full Stack Web &amp; Mobile Developer</title>
         @endif
 
-        <meta name="description" content="{{ isset($meta_description) ? $meta_description : 'I am a full stack web & mobile developer, and this is my blog where I share interesting knowledge' }}" />
+        <meta name="description" content="{{ isset($meta_description) ? $meta_description : trans('template.head.meta_description') }}" />
         <meta name="msapplication-TileColor" content="#2d89ef">
         <meta name="theme-color" content="#ffffff">
 
