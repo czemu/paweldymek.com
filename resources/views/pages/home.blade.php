@@ -27,6 +27,7 @@
 
         <div id="main">
             @include('partials/post_list')
+            @include('partials/footer')
         </div>
     </div>
 @endsection
