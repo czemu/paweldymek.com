@@ -1,12 +1,12 @@
-# The source code of [https://paweldymek.com/](https://paweldymek.com)
+# The source code of <https://paweldymek.com>
 
-This repository contains the source code of my blog built on [https://laravel.com/](Laravel) with [https://nova.laravel.com/](Laravel Nova) for admin panel.
+This repository contains the source code of my blog built on [Laravel](https://laravel.com/) with [Laravel Nova](https://nova.laravel.com/) for admin panel.
 
 Please note that this is not something like another boilerplate or even CMS to build your blog from scratch. This is real code of my blog adapted to my personal needs. You are free to use this code but please do not use my design and write your own HTML/CSS code. 
 
 ## What’s inside 
 
-* Admin panel built on [https://nova.laravel.com/](Nova)
+* Admin panel built on [Nova](https://nova.laravel.com/)
 * Multilanguage support
 * Simple RSS 2.0 feed
 
@@ -18,7 +18,7 @@ Please note that this is not something like another boilerplate or even CMS to b
 * Copy `.env.example` to `.env` and fill in your MySQL database settings
 * `php artisan key:generate`
 * `php artisan migrate`
-* Install Nova: https://nova.laravel.com/docs/2.0/installation.html
+* Install Nova: <https://nova.laravel.com/docs/2.0/installation.html>
 * `php artisan serve`
 
 ## Credits
