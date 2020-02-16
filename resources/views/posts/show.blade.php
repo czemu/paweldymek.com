@@ -43,6 +43,7 @@
                     var disqus_config = function () {
                         this.page.url = '{{ $post->getUrl() }}';
                         this.page.identifier = '/post/{{ $post->slug }}';
+                        this.language = '{{ App::getLocale() }}';
                     };
                     (function() {
                     var d = document, s = d.createElement('script');
