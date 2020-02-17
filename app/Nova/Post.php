@@ -77,6 +77,7 @@ class Post extends Resource
                 ->conversionOnIndexView('small'),
             Boolean::make('Is published'),
             AttachMany::make('Tags', 'tags'),
+            Button::make(__('Show'))->link($this->getUrl())->style('primary-outline'),
         ];
     }
 
