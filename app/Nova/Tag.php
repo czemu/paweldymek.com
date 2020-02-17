@@ -9,6 +9,7 @@ use Benjaminhirsch\NovaSlugField\TextWithSlug;
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use NovaButton\Button;
 
 class Tag extends Resource
 {
@@ -76,6 +77,7 @@ class Tag extends Resource
                ->creationRules('unique:tags,slug')
                ->updateRules('unique:tags,slug,{{resourceId}}')
                ->hideFromIndex(),
+           Button::make(__('Show'))->link($this->getUrl())->style('primary-outline'),
         ];
     }
 
