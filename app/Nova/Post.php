@@ -45,6 +45,13 @@ class Post extends Resource
     ];
 
     /**
+     * Indicates whether Nova should check for modifications between viewing and updating a resource.
+     *
+     * @var bool
+     */
+    public static $trafficCop = false;
+
+    /**
      * Get the fields displayed by the resource.
      *
      * @param  \Illuminate\Http\Request  $request
