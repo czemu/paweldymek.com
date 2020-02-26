@@ -20,6 +20,9 @@
                     <a href="https://twitter.com/pawel_dymek" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
                 </li>
                 <li>
+                    <a href="https://www.linkedin.com/in/pawel-dymek/" title="LinkedIn" target="_blank"><i class="icon-linkedin-squared"></i></a>
+                </li>
+                <li>
                     <a href="mailto:pawel.dymek@gmail.com" title="E-mail"><i class="icon-mail-alt"></i></a>
                 </li>
             </ul>
