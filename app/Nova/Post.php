@@ -64,7 +64,11 @@ class Post extends Resource
             Select::make('Locale', 'locale')
                 ->options(array_combine(\LaravelLocalization::getSupportedLanguagesKeys(), \LaravelLocalization::getSupportedLanguagesKeys()))
                 ->rules('required'),
-            TextWithSlug::make('Name', 'name')->slug('slug')->rules('required', 'max:255'),
+            TextWithSlug::make('Name', 'name')
+                    ->slug('slug')->rules('required', 'max:255')
+                    ->displayUsing(function($title) {
+                        return \Str::limit($title, 55);
+                    }),
             Slug::make('Slug', 'slug')
                ->disableAutoUpdateWhenUpdating()
                ->sortable()
