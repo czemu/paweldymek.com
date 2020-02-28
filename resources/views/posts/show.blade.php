@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="content" class="article">
-        <div id="sidebar" style="background-image: url({{ $post->hasMedia('image') ? $post->getFirstMediaUrl('image') : url('images/backgrounds/1.jpg') }})">
+        <div id="sidebar">
             <div class="inner">
                 <header>
                     @include('partials/sidebar_author')
@@ -23,6 +23,10 @@
                 </div>
 
                 <div class="intro">{!! $post->intro !!}</div>
+
+                @if ($post->hasMedia('image'))
+                    <img class="main" src="{{ $post->getFirstMediaUrl('image') }}" alt="{{ $post->getFirstMedia('image')->getCustomProperty('description') }}" />
+                @endif
 
                 <div class="content">
                     {!! parsedown($post->content) !!}
