@@ -80,7 +80,7 @@ class Post extends Resource
             Markdown::make('Content', 'content'),
             Images::make('Image', 'image')
                 ->setFileName(function($originalFilename, $extension, $model) {
-                    return \Str::slug($model->name).'.'.strtolower($extension);
+                    return $model->slug;
                 })
                 ->customPropertiesFields([
                     Textarea::make(__('Description'), 'description'),
