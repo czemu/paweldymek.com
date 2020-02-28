@@ -112,6 +112,6 @@
         'title' => $post->name,
         'url' => $post->getUrl(),
         'description' => \Str::limit(str_replace(PHP_EOL, ' ', ! empty($post->intro) ? $post->intro : $post->content), 200, '...'),
-        'image' => $post->hasMedia('image') ? url($post->getFirstMediaUrl('image')) : url('images/home.png')
+        'image' => $post->hasMedia('image') ? url($post->getFirstMediaUrl('image', 'large')) : url('images/home.png')
     ])
 @endsection
