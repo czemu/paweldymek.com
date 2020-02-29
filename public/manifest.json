@@ -19,5 +19,5 @@
     "display": "standalone",
     "start_url": "/?source=pwa",
     "display": "standalone",
-    "scope": "/",
+    "scope": "/"
 }
