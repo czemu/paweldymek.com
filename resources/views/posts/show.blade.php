@@ -49,14 +49,7 @@
                         this.page.identifier = '/post/{{ $post->slug }}';
                         this.language = '{{ App::getLocale() }}';
                     };
-                    (function() {
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://pawel-dymek.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                    })();
                 </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </section>
 
             @include('partials/footer')

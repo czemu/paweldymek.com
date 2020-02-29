@@ -22,3 +22,22 @@ if (cookie_alert) {
         }
     }
 }
+
+// Disqus lazy loading
+const disqusContainer = document.getElementById('disqus_thread');
+const disqusObserver = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://pawel-dymek.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+
+        disqusObserver.disconnect();
+    }
+}, { rootMargin: '300px', threshold: 0 });
+
+if (disqusContainer) {
+    disqusObserver.observe(disqusContainer);
+}
