@@ -42,7 +42,7 @@ class Post extends Model implements HasMedia
 
     public function getUrl()
     {
-        return url($this->locale.'/post/'.$this->slug);
+        return ! empty($this->external_url) ? $this->external_url : url($this->locale.'/post/'.$this->slug);
     }
 
     public function getReadTime()
