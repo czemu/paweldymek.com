@@ -25,7 +25,8 @@ class PostsController extends Controller
         }
 
         return view('posts.show', compact('post'))
-            ->with('title', $post->name);
+            ->with('title', $post->name)
+            ->with('meta_description', $post->intro);
 	}
 
     public function tag($slug)
