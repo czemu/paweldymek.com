@@ -76,7 +76,7 @@ class Post extends Resource
                ->creationRules('unique:posts,slug')
                ->updateRules('unique:posts,slug,{{resourceId}}')
                ->hideFromIndex(),
-            Text::make('External URL'),
+            Text::make('External URL')->hideFromIndex(),
             Textarea::make('Intro'),
             Markdown::make('Content', 'content'),
             Images::make('Image', 'image')
