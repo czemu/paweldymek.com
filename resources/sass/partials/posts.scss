@@ -45,7 +45,21 @@
                 color: #888;
 
                 span {
+                    margin: 0 4px;
                     font-size: 12px;
+                }
+
+                a {
+                    color: #888;
+                    
+                    &:hover {
+                        color: $blue;
+                    }
+
+                    i {
+                        margin-right: 5px;
+                        vertical-align: middle;
+                    }
                 }
             }
         }

@@ -45,6 +45,11 @@ class Post extends Model implements HasMedia
         return ! empty($this->external_url) ? $this->external_url : url($this->locale.'/post/'.$this->slug);
     }
 
+    public function getExternalDomain()
+    {
+        return parse_url($this->getUrl(), PHP_URL_HOST);
+    }
+
     public function getReadTime()
     {
         return ceil(str_word_count($this->intro.' '.$this->content) / 230);
