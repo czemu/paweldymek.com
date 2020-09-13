@@ -25,7 +25,13 @@
                 <div class="intro">{!! $post->intro !!}</div>
 
                 @if ($post->hasMedia('image'))
-                    <img class="main" src="{{ $post->getFirstMediaUrl('image') }}" alt="{{ $post->getFirstMedia('image')->getCustomProperty('description') }}" />
+                    <figure class="main">
+                        <img src="{{ $post->getFirstMediaUrl('image') }}" alt="{{ $post->getFirstMedia('image')->getCustomProperty('alt') }}" />
+
+                        @if ($post->getFirstMedia('image')->hasCustomProperty('description'))
+                            <figcaption>{{ $post->getFirstMedia('image')->getCustomProperty('description') }}</figcaption>
+                        @endif
+                    </figure>
                 @endif
 
                 <div class="content">

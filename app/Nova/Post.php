@@ -84,7 +84,8 @@ class Post extends Resource
                     return $model->slug;
                 })
                 ->customPropertiesFields([
-                    Textarea::make(__('Description'), 'description'),
+                    Text::make('Alt attribute', 'alt'),
+                    Text::make('Description', 'description'),
                 ])
                 ->conversionOnIndexView('small'),
             Boolean::make('Is published'),
