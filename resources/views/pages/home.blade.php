@@ -9,7 +9,7 @@
                         <img src="{{ url('images/pawel_dymek.jpg') }}" alt="Paweł Dymek" />
                     </div>
                     <h1>Paweł Dymek</h1>
-                    <span>Full Stack Web & Mobile Developer</span>
+                    <span>Software Developer</span>
                 </div>
             </header>
             <ul class="icons">

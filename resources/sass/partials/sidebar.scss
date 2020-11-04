@@ -42,7 +42,7 @@
             h2 {
                 margin-bottom: 15px;
                 padding: 15px;
-                font-size: 38px;
+                font-size: 34px;
                 display: inline-block;
                 background: #fff;
                 color: #04141d;
@@ -50,14 +50,14 @@
                 border-radius: 4px;
 
                 @media all and (max-width: $break-medium) {
-                    font-size: 32px;
+                    font-size: 30px;
                 }
             }
 
             span {
                 display: block;
                 font-weight: bold;
-                font-size: 16px;
+                font-size: 22px;
                 letter-spacing: -1px;
                 color: #04141d;
                 text-shadow: 0 1px 1px rgba(255, 255, 255, 1);
