@@ -7,7 +7,7 @@
         @if (isset($title))
             <title>{{ $title.' - Paweł Dymek' }}</title>
         @else
-            <title>Paweł Dymek - Full Stack Web &amp; Mobile Developer</title>
+            <title>Paweł Dymek - Software Developer</title>
         @endif
 
         <meta name="description" content="{{ isset($meta_description) ? $meta_description : trans('template.head.meta_description') }}" />

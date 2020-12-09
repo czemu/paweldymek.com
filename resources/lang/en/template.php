@@ -2,7 +2,7 @@
 
 return [
     'head' => [
-        'meta_description' => 'I am a full stack web & mobile developer, and this is my blog where I share interesting knowledge.'
+        'meta_description' => 'I am a software developer, and this is my blog where I share interesting knowledge.'
     ],
 
     'cookie_alert' => [

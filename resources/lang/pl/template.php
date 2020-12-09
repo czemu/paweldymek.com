@@ -2,7 +2,7 @@
 
 return [
     'head' => [
-        'meta_description' => 'Jestem full stack web & mobile deweloperem, a to mój blog, na którym dzielę się ciekawą wiedzą.'
+        'meta_description' => 'Jestem software deweloperem, a to mój blog, na którym dzielę się ciekawą wiedzą.'
     ],
 
     'cookie_alert' => [
