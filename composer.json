@@ -14,14 +14,14 @@
         }
     ],
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.3.0",
         "benjaminhirsch/nova-slug-field": "^1.2",
         "dillingham/nova-attach-many": "^1.0",
         "dillingham/nova-button": "^1.0",
         "ebess/advanced-nova-media-library": "^3.3.0",
         "fideloper/proxy": "^4.0",
         "infinety-es/nova-filemanager": "^2.6",
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^8.0",
         "laravel/nova": "*",
         "laravel/tinker": "^2.0",
         "mcamara/laravel-localization": "^1.4",
@@ -32,11 +32,11 @@
         "spatie/nova-backup-tool": "^4.1.0"
     },
     "require-dev": {
-        "facade/ignition": "^2.0",
+        "facade/ignition": "^2.3.6",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^4.1",
-        "phpunit/phpunit": "^8.5"
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.0"
     },
     "config": {
         "optimize-autoloader": true,
