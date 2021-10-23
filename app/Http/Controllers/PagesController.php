@@ -13,7 +13,7 @@ class PagesController extends Controller
         
         $posts = Post::locale(\App::getLocale())
             ->published()
-            ->orderBy('id', 'DESC')
+            ->orderBy('created_at', 'DESC')
             ->get();
 
         return view('pages.home', compact('posts'));
