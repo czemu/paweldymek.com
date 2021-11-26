@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -57,12 +58,22 @@ class Post extends Model implements HasMedia
         return ceil(str_word_count($this->intro.' '.$this->content) / 230);
     }
 
-    public function scopePublished($query)
+    public function scopeFilter(Builder $query, array $data): Builder
+    {
+        if ( ! empty($data['locale']))
+        {
+            $query->where('locale', $data['locale']);
+        }
+
+        return $query;
+    }
+
+    public function scopePublished(Builder $query): Builder
     {
         return $query->where('is_published', 1);
     }
 
-    public function scopeLocale($query, $locale)
+    public function scopeLocale(Builder $query, string $locale): Builder
     {
         return $query->where('locale', $locale);
     }

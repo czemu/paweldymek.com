@@ -14,10 +14,11 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         return PostResource::collection(
             Post::select('posts.*')
+                ->filter($request->query('filter'))
                 ->published()
                 ->orderBy('posts.id', 'DESC')
                 ->paginate(request('per_page', 10))
@@ -26,6 +27,11 @@ class PostsController extends Controller
 
     public function show(Request $request, $id)
     {
-        return new PostResource(Post::findOrFail($id));
+        return new PostResource(Post::published()->findOrFail($id));
+    }
+
+    public function showBySlug(Request $request, $slug)
+    {
+        return new PostResource(Post::where('slug', $slug)->published()->firstOrFail());
     }
 }

@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('posts/slug:{slug}', 'Api\PostsController@showBySlug');
 Route::apiResource('posts', 'Api\PostsController');
+
+Route::get('tags/slug:{slug}', 'Api\TagsController@showBySlug');
 Route::apiResource('tags', 'Api\TagsController');
 Route::get('tags/{id}/posts', 'Api\TagsController@posts');

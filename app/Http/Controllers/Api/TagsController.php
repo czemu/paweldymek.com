@@ -27,6 +27,11 @@ class TagsController extends Controller
         return new TagResource(Tag::findOrFail($id));
     }
 
+    public function showBySlug(Request $request, $slug)
+    {
+        return new TagResource(Tag::where('slug', $slug)->firstOrFail());
+    }
+
     public function posts(Request $request, $id)
     {
         $tag = Tag::findOrFail($id);
