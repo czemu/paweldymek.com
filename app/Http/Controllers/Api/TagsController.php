@@ -22,17 +22,17 @@ class TagsController extends Controller
         );
     }
 
-    public function show(Request $request, $id)
+    public function show(Request $request, string $id)
     {
         return new TagResource(Tag::findOrFail($id));
     }
 
-    public function showBySlug(Request $request, $slug)
+    public function showBySlug(Request $request, string $slug)
     {
         return new TagResource(Tag::where('slug', $slug)->firstOrFail());
     }
 
-    public function posts(Request $request, $id)
+    public function posts(Request $request, string $id)
     {
         $tag = Tag::findOrFail($id);
 

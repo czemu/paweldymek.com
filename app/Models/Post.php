@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -17,7 +17,7 @@ class Post extends Model implements HasMedia
 
     protected $guarded = ['id'];
 
-    public static function boot()
+    public static function boot(): void
     {
         parent::boot();
 
@@ -38,27 +38,27 @@ class Post extends Model implements HasMedia
         $this->addMediaConversion('small')->crop('crop-center', 100, 80);
     }
 
-    public function tags()
+    public function tags(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Tag');
     }
 
-    public function getUrl()
+    public function getUrl(): string
     {
         return ! empty($this->external_url) ? $this->external_url : url($this->locale.'/post/'.$this->slug);
     }
 
-    public function getExternalDomain()
+    public function getExternalDomain(): string
     {
         return parse_url($this->getUrl(), PHP_URL_HOST);
     }
 
-    public function getReadTime()
+    public function getReadTime(): int
     {
         return ceil(str_word_count($this->intro.' '.$this->content) / 230);
     }
 
-    public function scopeFilter(Builder $query, array $data): Builder
+    public function scopeFilter(Builder $query, array|null $data = []): Builder
     {
         if ( ! empty($data['locale']))
         {

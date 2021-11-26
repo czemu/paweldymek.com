@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Tag extends Model
 {
     use HasFactory;
     
-    public static function boot()
+    public static function boot(): void
     {
         parent::boot();
 
@@ -18,12 +19,12 @@ class Tag extends Model
         });
    }
 
-    public function posts()
+    public function posts(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Post');
     }
 
-    public function getUrl()
+    public function getUrl(): string
     {
         return route('posts.tag', $this->slug);
     }

@@ -25,12 +25,12 @@ class PostsController extends Controller
         );
     }
 
-    public function show(Request $request, $id)
+    public function show(Request $request, string $id)
     {
         return new PostResource(Post::published()->findOrFail($id));
     }
 
-    public function showBySlug(Request $request, $slug)
+    public function showBySlug(Request $request, string $slug)
     {
         return new PostResource(Post::where('slug', $slug)->published()->firstOrFail());
     }

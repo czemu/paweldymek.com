@@ -11,7 +11,7 @@ use Carbon\Carbon;
 
 class PostsController extends Controller
 {
-    public function show($slug)
+    public function show(string $slug)
 	{
         $post = Post::where('slug', $slug)->first();
 
@@ -29,7 +29,7 @@ class PostsController extends Controller
             ->with('meta_description', $post->intro);
 	}
 
-    public function tag($slug)
+    public function tag(string $slug)
     {
         $tag = Tag::where('slug', $slug)->first();
 
