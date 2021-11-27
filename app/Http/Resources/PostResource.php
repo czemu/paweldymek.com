@@ -15,12 +15,12 @@ class PostResource extends JsonResource
      */
     public function toArray($request)
     {
-        $showFullDetails = $request->route()->getActionMethod() === 'show';
+        $showFullDetails = in_array($request->route()->getActionMethod(), ['show', 'showBySlug']);
 
         $array = parent::makeHidden(['pivot', 'content', 'is_published', 'updated_at'])->toArray($request);
 
         $array += [
-            'content' => $this->when($showFullDetails, $this->content),
+            'content' => $this->when($showFullDetails, parsedown($this->content)),
             'tags' => TagResource::collection($this->tags),
             'image_url' => $this->hasMedia('image') ? $this->getFirstMediaUrl('image', 'large') : null
         ];
