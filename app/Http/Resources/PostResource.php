@@ -22,7 +22,8 @@ class PostResource extends JsonResource
         $array += [
             'content' => $this->when($showFullDetails, parsedown($this->content)),
             'tags' => TagResource::collection($this->tags),
-            'image_url' => $this->hasMedia('image') ? $this->getFirstMediaUrl('image', 'large') : null
+            'image_url' => $this->hasMedia('image') ? $this->getFirstMediaUrl('image', 'large') : null,
+            'read_time' => $this->getReadTime()
         ];
 
         return $array;
