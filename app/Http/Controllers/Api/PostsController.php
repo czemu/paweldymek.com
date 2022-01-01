@@ -20,7 +20,7 @@ class PostsController extends Controller
             Post::select('posts.*')
                 ->filter($request->query('filter'))
                 ->published()
-                ->orderBy('posts.id', 'DESC')
+                ->orderBy('posts.created_at', 'DESC')
                 ->paginate(request('per_page', 10))
         );
     }

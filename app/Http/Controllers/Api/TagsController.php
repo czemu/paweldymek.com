@@ -40,7 +40,7 @@ class TagsController extends Controller
             ->posts()
             ->filter($request->query('filter'))
             ->published()
-            ->orderBy('posts.id', 'DESC')
+            ->orderBy('posts.created_at', 'DESC')
             ->get();
 
         return PostResource::collection($posts);
