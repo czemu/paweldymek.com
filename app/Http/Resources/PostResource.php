@@ -18,7 +18,7 @@ class PostResource extends JsonResource
     {
         $showFullDetails = in_array($request->route()->getActionMethod(), ['show', 'showBySlug']);
 
-        $array = parent::makeHidden(['pivot', 'content', 'is_published', 'updated_at'])->toArray($request);
+        $array = parent::makeHidden(['pivot', 'content', 'is_published'])->toArray($request);
 
         $array += [
             'content' => $this->when($showFullDetails, parsedown($this->content)),
