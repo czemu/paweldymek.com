@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Spatie\Image\Image;
 use App\Http\Resources\TagResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -22,9 +23,22 @@ class PostResource extends JsonResource
         $array += [
             'content' => $this->when($showFullDetails, parsedown($this->content)),
             'tags' => TagResource::collection($this->tags),
-            'image_url' => $this->hasMedia('image') ? $this->getFirstMediaUrl('image', 'large') : null,
-            'read_time' => $this->getReadTime()
+            'read_time' => $this->getReadTime(),
+            'image' => null
         ];
+
+        $image = $this->getFirstMedia('image');
+
+        if ( ! is_null($image))
+        {
+            $array['image'] = [
+                'url' => $image->getUrl('large'),
+                'alt' => $image->hasCustomProperty('alt') ? $image->getCustomProperty('alt') : null,
+                'description' => $image->hasCustomProperty('description') ? $image->getCustomProperty('description') : null,
+                'width' => Image::load($image->getPath())->getWidth(),
+                'height' => Image::load($image->getPath())->getHeight()
+            ];
+        }
 
         return $array;
     }
