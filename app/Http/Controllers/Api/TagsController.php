@@ -36,6 +36,13 @@ class TagsController extends Controller
     {
         $tag = Tag::findOrFail($id);
 
-        return PostResource::collection($tag->posts);
+        $posts = $tag
+            ->posts()
+            ->filter($request->query('filter'))
+            ->published()
+            ->orderBy('posts.id', 'DESC')
+            ->get();
+
+        return PostResource::collection($posts);
     }
 }
