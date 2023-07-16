@@ -26,7 +26,7 @@
 
                 @if ($post->hasMedia('image'))
                     <figure class="main">
-                        <img src="{{ $post->getFirstMediaUrl('image') }}" alt="{{ $post->getFirstMedia('image')->getCustomProperty('alt') }}" />
+                        <img src="{{ $post->getFirstMediaUrl('image', 'large') }}" alt="{{ $post->getFirstMedia('image')->getCustomProperty('alt') }}" />
 
                         @if ($post->getFirstMedia('image')->hasCustomProperty('description'))
                             <figcaption>{{ $post->getFirstMedia('image')->getCustomProperty('description') }}</figcaption>
